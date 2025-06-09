@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://access-api.vercel.app/api",
+    "NEXT_PUBLIC_PRODUCTION_URL": "https://access-app.vercel.app"
+  }
+} 

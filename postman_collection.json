@@ -1,0 +1,103 @@
+{
+  "info": {
+    "_postman_id": "12345678-1234-1234-1234-123456789012",
+    "name": "Garment Samples API",
+    "description": "API for managing garment samples",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Samples",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/samples",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "samples"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Sample by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/samples/ABC123",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "samples", "ABC123"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Sample",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"style_id\": \"ABC123\",\n  \"price\": 29.99,\n  \"available_colors\": [\"Red\", \"Blue\", \"Black\"],\n  \"quantity\": 100,\n  \"packaging\": {\n    \"type\": \"Poly Bag\",\n    \"dimensions\": {\n      \"length\": 30,\n      \"width\": 20,\n      \"height\": 5\n    },\n    \"weight\": 250\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/samples",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "samples"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Sample",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 39.99,\n  \"quantity\": 150,\n  \"available_colors\": [\"Red\", \"Blue\", \"Black\", \"Green\"]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/samples/ABC123",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "samples", "ABC123"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Sample",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/samples/ABC123",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "samples", "ABC123"]
+        }
+      },
+      "response": []
+    }
+  ]
+} 

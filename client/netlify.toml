@@ -1,0 +1,30 @@
+[build]
+  base = "client/"
+  publish = ".next"
+  command = "npm run build"
+
+# You must set the API URL in the Netlify UI environment variables
+[build.environment]
+  NODE_VERSION = "18.x"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Handle SPA routing for Next.js
+[[redirects]]
+  from = "/*"
+  to = "/_next/static/:splat"
+  status = 200
+  force = false
+  condition = {path = {matches = "^/_next/static/.*"}}
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs" 

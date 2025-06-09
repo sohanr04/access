@@ -1,0 +1,46 @@
+{
+  "name": "garment-samples-db",
+  "version": "1.0.0",
+  "description": "A scalable, cloud-based database for garment samples using Firebase Firestore",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "node src/test.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sohanr04/access.git"
+  },
+  "keywords": [
+    "firebase",
+    "firestore",
+    "database",
+    "garment",
+    "samples",
+    "inventory",
+    "api",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sohanr04/access/issues"
+  },
+  "homepage": "https://github.com/sohanr04/access#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^10.8.0",
+    "http-status-codes": "^2.3.0",
+    "joi": "^17.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

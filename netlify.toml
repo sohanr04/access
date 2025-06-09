@@ -1,0 +1,29 @@
+[build]
+  base = "client/"
+  publish = ".next"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18.x"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Redirects and rewrites
+[[redirects]]
+  from = "/*"
+  to = "/_next/static/:splat"
+  status = 200
+  force = false
+  condition = {path = {matches = "^/_next/static/.*"}}
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs" 
