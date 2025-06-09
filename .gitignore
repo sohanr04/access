@@ -3,6 +3,9 @@ node_modules/
 /.pnp
 .pnp.js
 
+# Next.js binary files
+**/node_modules/@next/swc-*
+
 # Testing
 /coverage
 
