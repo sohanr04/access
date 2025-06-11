@@ -48,6 +48,13 @@ A scalable, cloud-based database system for managing garment samples using Fireb
    # Server configuration
    PORT=3000
 
+   # PostgreSQL configuration
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USER=postgres
+   DB_PASSWORD=yourpassword
+   DB_NAME=garment_inventory
+
    # Firebase configuration
    FIREBASE_API_KEY=your_api_key
    FIREBASE_AUTH_DOMAIN=your_auth_domain
@@ -61,6 +68,10 @@ A scalable, cloud-based database system for managing garment samples using Fireb
    ```
    npm run dev
    ```
+5. Create the PostgreSQL table:
+   ```
+   psql -d garment_inventory -f sql/create_items_table.sql
+   ```
 
 ## API Endpoints
 
@@ -73,6 +84,16 @@ A scalable, cloud-based database system for managing garment samples using Fireb
 | POST   | /api/samples | Create a new sample |
 | PUT    | /api/samples/:styleId | Update a sample |
 | DELETE | /api/samples/:styleId | Delete a sample |
+
+### Items (PostgreSQL)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /api/items | Get all garments |
+| GET    | /api/items/:id | Get item by ID |
+| POST   | /api/items | Create a new garment and QR code |
+| PUT    | /api/items/:id | Update an item |
+| DELETE | /api/items/:id | Delete an item |
 
 ### Sample API Requests
 
@@ -108,6 +129,22 @@ GET /api/samples/ABC123
 A Postman collection is included in the repository (`postman_collection.json`). Import this collection into Postman to test the API endpoints.
 
 ## Data Schema
+
+### items table (PostgreSQL)
+
+```
+id SERIAL PRIMARY KEY
+style_code VARCHAR
+price NUMERIC
+quantity INTEGER
+color VARCHAR
+fabric_composition VARCHAR
+fabric_weight NUMERIC
+packaging_details TEXT
+qr_code_url TEXT
+image_url TEXT
+created_at TIMESTAMP DEFAULT NOW()
+```
 
 Each document in the `samples` collection represents a garment sample with the following fields:
 
