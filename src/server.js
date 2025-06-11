@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import sampleRoutes from './api/routes/sampleRoutes.js';
+import itemRoutes from './api/routes/itemRoutes.js';
 import { errorHandler, notFound } from './api/middleware/errorHandler.js';
 
 // Load environment variables
@@ -26,9 +27,12 @@ app.use((req, res, next) => {
 // Increase JSON payload limit for image data
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use('/qr-codes', express.static('qr-codes'));
+app.use('/uploads', express.static('uploads'));
 
 // API Routes
 app.use('/api/samples', sampleRoutes);
+app.use('/api/items', itemRoutes);
 
 // Root route
 app.get('/', (req, res) => {
